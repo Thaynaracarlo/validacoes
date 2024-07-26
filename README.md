@@ -2,7 +2,7 @@
 
  ## Esse projeto, aprendemos a ultilizar javascript, desenvolvemos dois sistemas de validação, para email e CPF.
 
- ## ``IMAGEM DO PROJETO``
+ ## ``Imagem do projeto:``
 ![](CPF.jpeg)
 
 # ``Explicação do CPF JS``
