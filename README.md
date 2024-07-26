@@ -7,14 +7,57 @@
 ![](CPF.jpeg)
 
 # Explicação do CPF:
-".addEventListener('submit', function (event) { ... })": Adiciona um escutador de eventos que aguarda o evento de submissão do formulário. event.preventDefault(): Impede o comportamento padrão de envio do formulário, que recarregaria a página.
-"const msg = document.getElementById('message'): Obtém o elemento com o ID message, onde a mensagem de validação será exibida.
-"if (validarCPF(CPF)) { ... } else { ... }": Verifica se o CPF é válido chamando a função validarCPF(CPF). Se for válido, a mensagem é definida como "O CPF é válido!" com a cor verde. Se não for válido, a mensagem é definida como "O CPF é inválido!" com a cor vermelha.
-"CPF = CPF.replace(/[^\d]+/g, '');": remove  caracteres não numéricos
-"if (CPF.length !== 11 || /^(\d)\1{10}$/.test(CPF)) { return false;" : Verifica se tem 11 exatamente 11 dígitos, e se não são números repetitivos (11111111111).
-"let soma = 0; for (let i = 1; i <= 9; i++) {  soma += parseInt(CPF.substring(i - 1, i)) * (11 - i); } resto = (soma * 10) % 11; if ((resto === 10) || (resto === 11)) {     resto = 0;} if (resto !== parseInt(CPF.substring(9, 10))) {     return false;}" Calcula a soma dos primeiros 9 dígitos, multiplicando por pesos especificos, também calcula o primeiro dígito verificador e o compara com o 10º dígito.
-"soma = 0; for (let i = 1; i <= 10; i++) { soma += parseInt(CPF.substring(i - 1, i)) * (12 - i); }  resto = (soma * 10) % 11; if ((resto === 10) || (resto === 11)) { resto = 0; } if (resto !== parseInt(CPF.substring(10, 11))) { return false; }" : calcula a soma dos primeiros 10 dígitos do CPF (incluindo o primeiro dígito verificador) multiplicados por outros pesos e calcula o segundo dígito verificador e o compara com o 11º dígito do CPF.
-"return true;" : Se ambos os dígitos verificadores forem válidos, a função retorna true. Caso contrário, retorna false.
+O código é dividido em duas partes principais:
+
+ * 1.dição de um escutador de eventos ao formulário para validação
+*  2.Função validarCPF que realiza a verificação do CPF
+
+ # Adicionando o Escutador de Eventos
+Esta parte do código adiciona um escutador de eventos ao formulário de CPF para validar o CPF quando o formulário é enviado.
+
+document.getElementById('cpfForm').addEventListener('submit', function(event){
+    event.preventDefault();
+
+    const cpf = document.getElementById('cpf').value; 
+    const msg = document.getElementById('message');
+
+    if(validarCPF(cpf)){
+        msg.textContent = "O CPF é válido!";
+        msg.style.color = 'green';
+    } else {
+        msg.textContent = "O CPF é inválido!";
+        msg.style.color = 'red';
+    }
+});
+
+# Captura do Formulário e Adição do Escutador:
+document.getElementById('cpfForm').addEventListener('submit', function(event){
+* Obtém o formulário com o ID cpfForm e adiciona um escutador de eventos para o evento de envio (submit).
+
+# Prevenção do Envio do Formulário:
+event.preventDefault();
+* Impede o envio padrão do formulário para evitar recarregamento da página e executar a validação do CPF em vez disso.
+
+# Obtenção do Valor do CPF e Mensagem:
+const cpf = document.getElementById('cpf').value;
+const msg = document.getElementById('message');
+* Obtém o valor inserido no campo de CPF e o elemento onde a mensagem de validação será exibida.
+
+# Validação do CPF e Atualização da Mensagem:
+
+if(validarCPF(cpf)){
+    msg.textContent = "O CPF é válido!";
+    msg.style.color = 'green';
+} else {
+    msg.textContent = "O CPF é inválido!";
+    msg.style.color = 'red';
+}
+* Chama a função validarCPF para verificar se o CPF é válido.
+* Atualiza o conteúdo e a cor do texto da mensagem dependendo do resultado da validação.
+
+
+
+
  
 # Explicação do email js:
 * O código é dividido em duas funções que lidam com a validação e verificação do endereço de e-mail em um formulário HTML.
