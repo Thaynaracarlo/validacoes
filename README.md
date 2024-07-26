@@ -9,8 +9,7 @@
 # ``Explicação do CPF JS``
  
 ### ``Adiciona um Escutador ao Formulário``
- 
- 
+
  
     document.getElementById('CPFform').addEventListener('submit', function (event) {
  
@@ -142,13 +141,9 @@ Verifica se o CPF tem exatamente 11 dígitos e se não é uma sequência repetit
  
 * Se ambos os dígitos verificadores forem válidos, a função retorna true. Caso contrário, retorna false.
  
+
  
-### CPF IMAGEM
- 
-![](cpfimg.png)
-#
- 
-## Explicação do email js:
+## ``Explicação do email js``
  
 ### ``Função checarEmail:``
  
@@ -195,50 +190,6 @@ Define o foco no campo de e-mail (document.frmEnvia.email.focus();). Note que do
  
     return true;
 * Se o campo de e-mail não estiver vazio, a função retorna true, indicando que a verificação foi bem-sucedida.
- 
-
-
-
-
- 
-# ``Explicação do email js``
-* O código é dividido em duas funções que lidam com a validação e verificação do endereço de e-mail em um formulário HTML.
-
-# ``Função checarEmail``
-* Essa função tem o objetivo de verificar o e-mail informado no formulário é válido. 
-function checarEmail(){
-    if(document.forms[0].email.value == "" || document.forms[0].email.value.indexOf('@') == -1 || document.forms[0].email.value.indexOf('.') == -1)
-    {
-
-# ``Mensagem de erro e retorno``
-alert("Por favor, informe um email válido"); return false;
-* Exibe um alerta com a mensagem de erro e retorna false, o que pode impedir o envio do formulário ou a execução de outras ações dependentes desta função.
-
-# ``Mensagem de sucesso e atualização do HTML``
-alert("Email informado com sucesso!");
-document.getElementById('email').innerHTML = document.forms[0].email.value;
-* Se o e-mail for válido, exibe uma mensagem de sucesso.
-* Atualiza o conteúdo do elemento com id='email' para mostrar o e-mail informado.
-
-# ``Função verifica``
-Essa função é usada para verificar se o e-mail foi informado.
-if(document.forms[0].email.value == 0 ){
-* Aqui, há um problema: document.forms[0].email.value é uma string e não pode ser igual a 0. Para verificar se o campo está vazio, o correto seria document.forms[0].email.value == "".
-
-# ``Mensagem de alerta e foco``
-alert("por favor, informe seu E-mail");
-document.frmEnvia.email.focus();
-* Exibe um alerta pedindo para o usuário informar o e-mail.
-Define o foco no campo de e-mail (document.frmEnvia.email.focus();). Note que document.frmEnvia deve ser substituído por document.forms[0], que é mais consistente com o código anterior.
-
-# ``Retorno``
-return false;
-* Retorna false para indicar que a verificação falhou.
-
-# ``Retorno padrão``
-return true;
-* Se o campo de e-mail não estiver vazio, a função retorna true, indicando que a verificação foi bem-sucedida.
-
 
 
 
