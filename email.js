@@ -9,7 +9,7 @@ function checarEmail(){
         document.getElementById('email').innerHTML = document.forms[0].email.value;
     }
 }
-
+ 
 
 
 //------------------------------------------
